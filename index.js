@@ -17,10 +17,20 @@
 */
 
 function dosyaAdiniBul(path) {
-  return path.split("/").pop()}
-console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"))
+  return path.split("/").pop();
+}
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
+
+/* TEKRAR SONRASI UZUN YOLDAN ÇÖZÜMÜM
+function dosyaAdiniBul(path) {
+  const myArray = path.split("/");
+  console.log(myArray.pop())
+}
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3")) 
+*/
 
 /*
+
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
   - Output: Yazacağın fonksiyon input olarak aldığı sayı arrayinin aritmetik ortalamasını dönmeli.
@@ -38,13 +48,21 @@ console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"))
   örnek output: 104
 */
 
-function ortalamaBul(array) {
-  if (array.length === 0){
-    return null
-  }  const ort = array.reduce(((toplam, sayi)=> toplam+=sayi),0) / (array.length)
+/* function ortalamaBul(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  const ort =
+    array.reduce((toplam, sayi) => (toplam += sayi), 0) / array.length;
   return ort;
 }
-console.log (ortalamaBul[109, 216, 288, 143, 71, 185, -278, 194, 5]);
+console.log(ortalamaBul([])); */
+
+function ortalamaBul(dizi) {
+  const ort = dizi.reduce((toplam, sayi) => (toplam += sayi), 0) / dizi.length;
+  return dizi.length === 0 ? null : ort;
+}
+console.log(ortalamaBul([50, -26, 153, 7]));
 
 /*
   GÖREV 3
@@ -66,12 +84,12 @@ console.log (ortalamaBul[109, 216, 288, 143, 71, 185, -278, 194, 5]);
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(sayiDizisi) {
-  /*const buyukler = sayiDizisi.filter((sayi) => sayi > ortalamaBul);
-  console.log(buyukler);*/  
+function ortalamadanBuyukleriBul(dizi) {
+  const ortalama = ortalamaBul(dizi);
+  const ortalamadanBuyukler = dizi.filter((sayi) => sayi >= ortalama);
+  return dizi.length === 0 ? null : ortalamadanBuyukler;
 }
-console.log(ortalamadanBuyukleriBul[50, -26, 153, 7]);
-
+console.log(ortalamadanBuyukleriBul([50, -26, 153, 7]));
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
